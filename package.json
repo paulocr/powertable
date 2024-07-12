@@ -1,0 +1,63 @@
+{
+	"name": "@muonw/powertable",
+	"description": "▦ PowerTable is a Svelte component that turns JSON data into an interactive HTML table. Inspired by DataTables. Powered by Svelte.",
+	"version": "2.3.5",
+	"publishConfig": {
+		"registry": "https://node.pkgreg.com"
+	},
+	"homepage": "https://muonw.github.io/muonw-powertable/",
+	"bugs": {
+		"url": "https://github.com/muonw/muonw-powertable/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/muonw/muonw-powertable.git"
+	},
+	"license": "unenforceable",
+	"scripts": {
+		"dev": "vite dev",
+		"buildLocal": "vite build --mode=development && rm -rf ../_docs && mv docs _docs && mv _docs ../",
+		"buildProduction": "vite build --mode=production && rm -rf ../docs && mv docs ../",
+		"package": "svelte-kit sync && svelte-package",
+		"preview": "vite preview",
+		"prepublishOnly": "if [ -z $MU_NPM_PERMIT ]; then echo 'Please use `publishLocal` or `publishPublic`' && exit 1; fi",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --plugin-search-dir . --check . && eslint .",
+		"format": "prettier --plugin-search-dir . --write .",
+		"updateDeps": "npx npm-check-updates -u"
+	},
+	"exports": {
+		".": {
+			"types": "./index.d.ts",
+			"svelte": "./index.js"
+		},
+		"./styles/power-table.scss": "./styles/power-table.scss",
+		"./styles/power-table-mascara.scss": "./styles/power-table-mascara.scss"
+	},
+	"peerDependencies": {
+		"svelte": "^4.0.0"
+	},
+	"devDependencies": {
+		"@muonw/mascara": "0.1.12",
+		"@sveltejs/adapter-static": "^2.0.2",
+		"@sveltejs/kit": "^1.20.4",
+		"@sveltejs/package": "^2.0.0",
+		"@typescript-eslint/eslint-plugin": "^5.45.0",
+		"@typescript-eslint/parser": "^5.45.0",
+		"eslint": "^8.28.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-svelte": "^2.30.0",
+		"prettier": "^2.8.0",
+		"prettier-plugin-svelte": "^2.10.1",
+		"sass": "^1.63.6",
+		"svelte": "^4.0.0",
+		"svelte-check": "^3.4.3",
+		"tslib": "^2.4.1",
+		"typescript": "^5.0.0",
+		"vite": "^4.3.6"
+	},
+	"svelte": "./index.js",
+	"types": "./index.d.ts",
+	"type": "module"
+}
